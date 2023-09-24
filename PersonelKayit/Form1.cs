@@ -20,6 +20,20 @@ namespace PersonelKayit
 
         SqlConnection baglanti = new SqlConnection("Data Source=MEHMETHAN;Initial Catalog=PersonelVeriTabani;Integrated Security=True");
 
+        void temizle()
+        {
+            Txtid.Text = "";
+            TxtAd.Text = "";
+            TxtSoyad.Text = "";
+            TxtMeslek.Text = "";
+            MskMaas.Text = "";
+            CmbSehir.Text = "";
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            TxtAd.Focus();
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             this.tbl_PersonelTableAdapter.Fill(this.personelVeriTabaniDataSet.Tbl_Personel);
@@ -49,12 +63,60 @@ namespace PersonelKayit
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            label9.Text = "True";
+            if (radioButton1.Checked == true)
+            {
+                label9.Text = "True";
+            }
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            label9.Text = "False";
+            if (radioButton2.Checked == true)
+            {
+                label9.Text = "False";
+            }
+        }
+
+        private void BtnTemizle_Click(object sender, EventArgs e)
+        {
+            temizle();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].RowIndex;
+
+            Txtid.Text = dataGridView1.Rows[secilen].Cells[0].Value.ToString();
+            TxtAd.Text = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
+            TxtSoyad.Text = dataGridView1.Rows[secilen].Cells[2].Value.ToString();
+            CmbSehir.Text = dataGridView1.Rows[secilen].Cells[3].Value.ToString();
+            MskMaas.Text = dataGridView1.Rows[secilen].Cells[4].Value.ToString();
+            label9.Text = dataGridView1.Rows[secilen].Cells[5].Value.ToString();
+            TxtMeslek.Text = dataGridView1.Rows[secilen].Cells[6].Value.ToString();
+        }
+
+        private void label9_TextChanged(object sender, EventArgs e)
+        {
+            if (label9.Text == "True")
+            {
+                radioButton1.Checked = true;
+            }
+
+            if (label9.Text == "False")
+            {
+                radioButton2.Checked = true;
+            }
+        }
+
+        private void BtnSil_Click(object sender, EventArgs e)
+        {
+            baglanti.Open();
+
+            SqlCommand komutsil = new SqlCommand("Delete From Tbl_Personel Where Perid=@k1",baglanti);
+            komutsil.Parameters.AddWithValue("@k1", Txtid.Text);
+            komutsil.ExecuteNonQuery();
+
+            baglanti.Close();
         }
     }
 }

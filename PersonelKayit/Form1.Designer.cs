@@ -273,6 +273,7 @@
             this.BtnTemizle.TabIndex = 6;
             this.BtnTemizle.Text = "Temizle";
             this.BtnTemizle.UseVisualStyleBackColor = true;
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
             // BtnGuncelle
             // 
@@ -291,6 +292,7 @@
             this.BtnSil.TabIndex = 4;
             this.BtnSil.Text = "Sil";
             this.BtnSil.UseVisualStyleBackColor = true;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // BtnKaydet
             // 
@@ -317,7 +319,7 @@
             this.Kayitlar.Controls.Add(this.dataGridView1);
             this.Kayitlar.Location = new System.Drawing.Point(12, 341);
             this.Kayitlar.Name = "Kayitlar";
-            this.Kayitlar.Size = new System.Drawing.Size(593, 207);
+            this.Kayitlar.Size = new System.Drawing.Size(753, 207);
             this.Kayitlar.TabIndex = 2;
             this.Kayitlar.TabStop = false;
             this.Kayitlar.Text = "groupBox3";
@@ -338,8 +340,9 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(587, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(747, 188);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // peridDataGridViewTextBoxColumn
             // 
@@ -410,18 +413,19 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(680, 285);
+            this.label9.Location = new System.Drawing.Point(690, 245);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 4;
             this.label9.Text = "label9";
+            this.label9.TextChanged += new System.EventHandler(this.label9_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(803, 560);
+            this.ClientSize = new System.Drawing.Size(770, 560);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Kayitlar);

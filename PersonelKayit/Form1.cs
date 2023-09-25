@@ -118,5 +118,22 @@ namespace PersonelKayit
 
             baglanti.Close();
         }
+
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+            baglanti.Open();
+
+            SqlCommand komutguncelle = new SqlCommand("Update Tbl_Personel Set PerAd=@a1,PerSoyad=@a2, PerSehir=@a3,PerMaas=@a4,Perdurum=@a5,PerMeslek=@a6 where Perid=@a7", baglanti);
+            komutguncelle.Parameters.AddWithValue("@a1", TxtAd.Text);
+            komutguncelle.Parameters.AddWithValue("@a2", TxtSoyad.Text);
+            komutguncelle.Parameters.AddWithValue("@a3", CmbSehir.Text);
+            komutguncelle.Parameters.AddWithValue("@a4", MskMaas.Text);
+            komutguncelle.Parameters.AddWithValue("@a5", label9.Text);
+            komutguncelle.Parameters.AddWithValue("@a6", TxtMeslek.Text);
+            komutguncelle.Parameters.AddWithValue("@a7", Txtid.Text);
+            komutguncelle.ExecuteNonQuery();
+
+            baglanti.Close();
+        }
     }
 }

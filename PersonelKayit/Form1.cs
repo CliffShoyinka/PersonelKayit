@@ -135,5 +135,11 @@ namespace PersonelKayit
 
             baglanti.Close();
         }
+
+        private void BtnIstatistik_Click(object sender, EventArgs e)
+        {
+            Frmistatistik fr = new Frmistatistik();
+            fr.Show();
+        }
     }
 }

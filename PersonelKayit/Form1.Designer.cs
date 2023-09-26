@@ -264,6 +264,7 @@
             this.BtnIstatistik.TabIndex = 8;
             this.BtnIstatistik.Text = "Istatistik";
             this.BtnIstatistik.UseVisualStyleBackColor = true;
+            this.BtnIstatistik.Click += new System.EventHandler(this.BtnIstatistik_Click);
             // 
             // BtnTemizle
             // 

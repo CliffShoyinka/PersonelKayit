@@ -33,6 +33,51 @@ namespace PersonelKayit
             }
 
             baglanti.Close();
+
+
+            //Evli personel sayisi
+
+            baglanti.Open();
+
+            SqlCommand komut2 = new SqlCommand("Selecet Count(*) From Tbl_Personel where PerDurum=1", baglanti);
+            SqlDataReader dr2 = komut2.ExecuteReader();
+
+            while (dr2.Read())
+            {
+                LblEvliPersonel.Text = dr2[0].ToString();
+            }
+
+            baglanti.Close();
+
+
+            //Bekar Personel Sayisi
+
+            baglanti.Open();
+
+            SqlCommand komut3 = new SqlCommand("Select Count(*) From Tbl_Personel where PerDurum=0", baglanti);
+            SqlDataReader dr3 = komut3.ExecuteReader();
+
+            while (dr3.Read())
+            {
+                LblBekarPersonel.Text = dr3[0].ToString();
+            }
+
+            baglanti.Close();
+
+
+
+            //Sehir sayisi
+
+            baglanti.Open();
+
+            SqlCommand komut4 = new SqlCommand("Select Count(distinct(PerSehir)) From Tbl_Personel",baglanti);
+            SqlDataReader dr4 = komut4.ExecuteReader();
+            while (dr4.Read())
+            {
+                LblSehirSayisi.Text = dr4[0].ToString(); 
+            }
+
+            baglanti.Close();
         }
     }
 }

@@ -39,15 +39,16 @@ namespace PersonelKayit
 
             baglanti.Open();
 
-            SqlCommand komut2 = new SqlCommand("Selecet Count(*) From Tbl_Personel where PerDurum=1", baglanti);
+            SqlCommand komut2 = new SqlCommand("Select Count(*) From Tbl_Personel where PerDurum=1", baglanti);
             SqlDataReader dr2 = komut2.ExecuteReader();
 
-            while (dr2.Read())
+            if (dr2.Read())
             {
                 LblEvliPersonel.Text = dr2[0].ToString();
             }
 
             baglanti.Close();
+
 
 
             //Bekar Personel Sayisi

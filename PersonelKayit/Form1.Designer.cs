@@ -255,6 +255,7 @@
             this.BtnGrafikler.TabIndex = 9;
             this.BtnGrafikler.Text = "Grafikler";
             this.BtnGrafikler.UseVisualStyleBackColor = true;
+            this.BtnGrafikler.Click += new System.EventHandler(this.BtnGrafikler_Click);
             // 
             // BtnIstatistik
             // 
